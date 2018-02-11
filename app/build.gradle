@@ -1,0 +1,109 @@
+apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao'
+
+def cfg = rootProject.ext.android // 配置
+def version = rootProject.ext.version // 版本
+
+android {
+    compileSdkVersion cfg.compileSdkVersion
+    buildToolsVersion cfg.buildToolsVersion
+    defaultConfig {
+        applicationId "cn.lingcx.im"
+        minSdkVersion cfg.minSdkVersion
+        targetSdkVersion cfg.targetSdkVersion
+        versionCode cfg.versionCode
+        versionName cfg.versionName
+        testInstrumentationRunner "android.support.News.runner.AndroidJUnitRunner"
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    sourceSets {
+        main {
+            jniLibs.srcDirs = ['libs']
+        }
+    }
+
+    greendao {
+        schemaVersion 1
+        daoPackage 'cn.lingcx.im.greendao'
+        targetGenDir 'src/main/java'
+    }
+}
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    compile 'com.android.support.constraint:constraint-layout:1.0.1'
+    testCompile 'junit:junit:4.12'
+    //support
+    compile "com.android.support:appcompat-v7:${version.androidSupportSdkVersion}"
+    compile "com.android.support:design:${version.androidSupportSdkVersion}"
+    compile "com.android.support:support-v4:${version.androidSupportSdkVersion}"
+    compile "com.android.support:cardview-v7:${version.androidSupportSdkVersion}"
+    compile "com.android.support:support-annotations:${version.androidSupportSdkVersion}"
+    compile "com.android.support:recyclerview-v7:${version.androidSupportSdkVersion}"
+    //视图注入
+    compile "com.jakewharton:butterknife:${version.butterknifeSdkVersion}"
+    annotationProcessor "com.jakewharton:butterknife-compiler:${version.butterknifeSdkVersion}"
+    //内存检测
+    debugCompile "com.squareup.leakcanary:leakcanary-android:${version.leakcanarySdkVersion}"
+    releaseCompile "com.squareup.leakcanary:leakcanary-android-no-op:${version.leakcanarySdkVersion}"
+    //加载动画
+    compile 'com.github.ybq:Android-SpinKit:1.0.4'
+    //Dagger2
+    annotationProcessor "com.google.dagger:dagger-compiler:${version.dagger2SdkVersion}"
+    compile "com.google.dagger:dagger:${version.dagger2SdkVersion}"
+    //RxJava
+    compile 'io.reactivex.rxjava2:rxandroid:2.0.1'
+    compile 'io.reactivex.rxjava2:rxjava:2.1.5'
+    //RxLifecycle
+    compile 'com.trello.rxlifecycle2:rxlifecycle-components:2.1.0'
+    //retrofit
+    compile "com.squareup.retrofit2:retrofit:${version.retrofitSdkVersion}"
+    compile "com.squareup.retrofit2:converter-gson:${version.retrofitSdkVersion}"
+    compile "com.squareup.retrofit2:converter-scalars:${version.retrofitSdkVersion}"
+    compile "com.squareup.retrofit2:adapter-rxjava2:2.2.0"
+    //okhttp3
+    compile "com.squareup.okhttp3:okhttp:${version.okhttp3SdkVersion}"
+    compile "com.squareup.okhttp3:logging-interceptor:${version.okhttp3SdkVersion}"
+    //gson
+    compile "com.google.code.gson:gson:${version.gsonSdkVersion}"
+    //recyclerview
+    compile 'com.android.support:recyclerview-v7:25.3.1'
+    //BaseRecyclerViewAdapterHelper
+    compile 'com.github.CymChad:BaseRecyclerViewAdapterHelper:2.9.18'
+    //glide
+    compile 'com.github.bumptech:glide:v3.7.0'
+    //自定义异常页面
+    compile 'cat.ereza:customactivityoncrash:2.1.0'
+    // material-dialogs
+    compile 'com.afollestad.material-dialogs:commons:0.9.4.5'
+    //多样tab菜单
+    compile 'com.flyco.tablayout:FlycoTabLayout_Lib:2.1.2@aar'
+    //文件下载
+    compile 'com.liulishuo.filedownloader:library:1.6.4'
+    //事件总线
+    compile 'org.greenrobot:eventbus:3.1.1'
+    //状态视图布局
+    compile 'com.github.smlcx:StateFrameLayout:1.0.0'
+    //沉浸式状态栏
+    compile 'com.readystatesoftware.systembartint:systembartint:1.0.3'
+    //鲁班图片压缩
+    compile 'top.zibin:Luban:1.1.3'
+    //图片缩放视图
+    compile 'com.github.chrisbanes:PhotoView:2.1.3'
+    //工具类集合
+    compile 'com.github.Blankj:AndroidUtilCode:1.12.5'
+    //日志工具类
+    compile 'com.orhanobut:logger:2.1.1'
+    //greenDao
+    compile 'org.greenrobot:greendao:3.2.2'
+    //圆角图片
+    compile 'de.hdodenhof:circleimageview:2.2.0'
+}

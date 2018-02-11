@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/bg_login_1">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:padding="@dimen/x20"
+        android:layout_marginTop="@dimen/y100"
+        android:background="@android:color/transparent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:hintAnimationEnabled="false"
+                app:hintEnabled="false">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/edt_login_account"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/y40"
+                    android:hint="QQ号/手机号/邮箱"
+                    android:textColorHint="@color/white"
+                    android:inputType="text"
+                    app:theme="@style/Login_Input_Style"
+                    android:textColor="@color/white">
+                </android.support.design.widget.TextInputEditText>
+
+            </android.support.design.widget.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <android.support.design.widget.TextInputLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:hintAnimationEnabled="false"
+                app:hintEnabled="false">
+
+                <android.support.design.widget.TextInputEditText
+                    android:id="@+id/edt_login_pwd"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/y40"
+                    android:hint="密码"
+                    android:textColorHint="@color/white"
+                    android:inputType="textPassword"
+                    app:theme="@style/Login_Input_Style"
+                    android:textColor="@color/white">
+                </android.support.design.widget.TextInputEditText>
+
+            </android.support.design.widget.TextInputLayout>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/y20">
+
+            <Button
+                android:id="@+id/btn_login"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/y35"
+                android:text="登  录"
+                android:textColor="@color/white"
+                android:textSize="18sp"
+                android:background="@drawable/btn_login"
+                android:alpha="0.8"/>
+
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:paddingTop="@dimen/y10">
+
+            <TextView
+                android:id="@+id/tv_unknow_pwd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentLeft="true"
+                android:text="忘记密码？"
+                android:textColor="@color/main"
+                android:clickable="true"/>
+
+            <TextView
+                android:id="@+id/tv_regist"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:text="新用户注册"
+                android:textColor="@color/main"
+                android:clickable="true"/>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:paddingBottom="@dimen/y30"
+        android:layout_centerHorizontal="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/white"
+            android:text="登录即代表阅读并同意"/>
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textColor="@color/main"
+            android:text="服务条款"/>
+
+    </LinearLayout>
+
+</RelativeLayout>
